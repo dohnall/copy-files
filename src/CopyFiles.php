@@ -8,7 +8,7 @@ class CopyFiles
     {
         echo 'running...<br>';
         $root = dirname(dirname(dirname(dirname(__FILE__))));
-        self::custom_copy($root.'/vendor/laravel/laravel', $root);
+        self::custom_copy($root.'/laravel/laravel', $root);
     }
 
     public static function custom_copy($src, $dst) {
