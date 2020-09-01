@@ -1,0 +1,27 @@
+{
+    "name": "dohnall/copy-files",
+    "type": "project",
+    "description": "Copy Laravel files via create project command",
+    "license": "MIT",
+    "require": {
+
+    },
+    "require-dev": {
+
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Dohnall\\CopyFiles\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+
+    }
+}
