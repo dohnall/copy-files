@@ -8,6 +8,7 @@ class CopyFiles
     {
         $root = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
         self::custom_copy($root.'/vendor/laravel/laravel', $root);
+        self::removeDir($root.'/vendor/laravel/laravel');
     }
 
     public static function custom_copy($src, $dst) {
@@ -36,5 +37,18 @@ class CopyFiles
         }
 
         closedir($dir);
+    }
+    
+    public static function removeDir($target) {
+        $directory = new RecursiveDirectoryIterator($target,  FilesystemIterator::SKIP_DOTS);
+        $files = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::CHILD_FIRST);
+        foreach ($files as $file) {
+            if (is_dir($file)) {
+                rmdir($file);
+            } else {
+                unlink($file);
+            }
+        }
+        rmdir($target);
     }
 }
